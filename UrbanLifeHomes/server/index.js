@@ -8,7 +8,16 @@ const PORT = process.env.PORT || 3001;
 const MONGO_URI = process.env.MONGO_URI;
 const DB_NAME = process.env.MONGO_DB || "urbanlifehomes";
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5137",
+      "https://urbanlifehomes.vercel.app",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 let db;
@@ -19,6 +28,13 @@ async function connectDB() {
   db = client.db(DB_NAME);
   console.log(`Connected to MongoDB: ${DB_NAME}`);
 }
+
+app.get("/", (req, res) => {
+  res.json({
+    status: "ok",
+    message: "Urban Life Homes API running",
+  });
+});
 
 app.get("/api/properties", async (req, res) => {
   try {

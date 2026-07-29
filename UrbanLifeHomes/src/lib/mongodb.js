@@ -1,4 +1,6 @@
-const API_BASE = "/api";
+import API_URL from "../config/api";
+
+const API_BASE = `${API_URL}/api`;
 
 export function isConfigured() {
   return true;
