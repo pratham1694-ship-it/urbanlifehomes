@@ -297,7 +297,7 @@ function HomePage() {
           <ScrollReveal animation="fade-right" delay={100}>
             <div className="brand-content">
               <h2 className="brand-title">Crafting Tomorrow</h2>
-              <p className="brand-descripsmoothtion">
+              <p className="brand-description">
                 Urban Life Homes Private Limited is a real estate development company committed to creating thoughtfully designed, high-quality living spaces that elevate modern lifestyles. Through innovative design, superior construction standards, and customer-focused solutions, we deliver homes built on trust, comfort, and lasting value.
               </p>
             </div>

@@ -19,3 +19,5 @@
 .text-link, .journey-visit { color: #f5f1e9; display: flex; align-items: center; gap: .65rem; text-transform: uppercase; letter-spacing: .13em; font-size: .7rem; margin-top: 2rem; width: fit-content; }
 .journey-visit { border-bottom: 1px solid #cdb26b; padding: 0 0 .75rem; }
 @media (max-width: 700px) { .journey-intro { min-height: 66vh; } .journey-progress { display: none; } .journey-scene { min-height: 82vh; padding: 2rem; } .journey-final { min-height: 76vh; display: block; } .journey-final-action { margin-top: 4rem; } }
+@media (max-width: 480px) { .journey-intro { min-height: 56vh; padding: 6rem 1.5rem 4rem; } .journey-scene { min-height: 70vh; padding: 1.5rem; } .journey-final { min-height: 64vh; padding: 3rem 1.5rem; } .journey-copy h3, .journey-final h3 { font-size: clamp(2rem, 8vw, 3rem); } .journey-intro h2 { font-size: clamp(1.8rem, 7vw, 2.5rem); } .journey-intro-copy { font-size: .9rem; } }
+@media (max-width: 400px) { .journey-scene { min-height: 60vh; padding: 1rem; } .journey-final { padding: 2rem 1rem; } .journey-intro { padding: 4rem 1rem 3rem; } }

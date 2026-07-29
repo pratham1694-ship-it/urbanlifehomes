@@ -709,7 +709,7 @@
 .outcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: end; }.estimate small, .payment-input label { text-transform: uppercase; letter-spacing: .12em; font-size: .65rem; color: #746c60; }.estimate strong { font: 400 clamp(3rem, 6vw, 6rem)/1 Georgia, serif; letter-spacing: -.07em; display: block; margin: 1rem 0; }.estimate p { max-width: 360px; font-size: .86rem; color: #625d55; }.payment-input > div { border-bottom: 1px solid #7f7668; display: flex; align-items: center; margin: 1.4rem 0 .8rem; }.payment-input span { font: 400 2rem Georgia,serif; }.payment-input input { width: 100%; border: 0; background: transparent; padding: .4rem; font: 400 clamp(2.5rem,4vw,4rem) Georgia,serif; outline: none; }.payment-input small { color: #746c60; }.planner-cta { margin-top: 5rem; display: flex; width: fit-content; gap: .8rem; align-items: center; color: #f4f0e8; background: #211c16; padding: 1.2rem 1.4rem; font-size: .7rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }.planner-note { color: #746c60; font-size: .7rem; margin: 2rem 0 0; text-align: center; }
 
 .footer { position: relative; overflow: hidden; padding: 0 0 2rem; background: radial-gradient(circle at 80% 20%,rgba(155,123,57,.32),transparent 27%), linear-gradient(115deg,rgba(5,5,4,.82),rgba(9,7,5,.9)), url('./assets/15.png') center/cover; }.footer .container { position: relative; }.footer-invitation { min-height: 62vh; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 7rem 0; }.footer-invitation p { font-size: .68rem; letter-spacing: .18em; color: #cfb46b; margin-bottom: 1.4rem; }.footer-invitation a { font: 400 clamp(3.7rem,9vw,9rem)/.85 Georgia,serif; color: #f5f1e9; letter-spacing: -.075em; }.footer-invitation a span { color:#cfb46b; }.footer-grid { padding-top: 2rem; border-top: 1px solid rgba(245,241,233,.25); }.footer h3 { font-family: Georgia,serif; font-weight: 400; }
-@media (max-width: 700px) { .projects-editorial { padding-top: 7rem; }.residence-choices, .outcome-grid { grid-template-columns: 1fr; }.residence-choices button { min-height: 130px; border-left: 1px solid rgba(36,30,22,.2); border-top: 0; }.residence-choices button:first-child { border-top: 1px solid rgba(36,30,22,.2); }.planner-details,.planner-outcome { padding: 4rem 0; }.footer-invitation { min-height: 48vh; }.footer-invitation a { font-size: 4rem; } }
+@media (max-width: 700px) { .projects-editorial { padding-top: 7rem; }.residence-choices, .outcome-grid { grid-template-columns: 1fr; }.residence-choices button { min-height: 130px; border-left: 1px solid rgba(36,30,22,.2); border-top: 0; }.residence-choices button:first-child { border-top: 1px solid rgba(36,30,22,.2); }.planner-details,.planner-outcome { padding: 4rem 0; }.planner-hero { min-height:40vh; padding-bottom:4rem; }.planner-hero h1 { font-size:clamp(2.8rem,10vw,5rem); }.planner-cta { flex-wrap:wrap; }.footer-invitation { min-height: 48vh; }.footer-invitation a { font-size: 4rem; } }
 
 /* ================= VISION & LEGACY: THE EDITORIAL CHAPTERS ================= */
 .vision-editorial, .legacy-editorial { background: #0a0908; color: #f4f0e8; }
@@ -728,6 +728,8 @@
 .footer-invitation { min-height:42vh; padding:4rem 0 2rem; }.footer-grid { padding-top:1.5rem; }
 @media (prefers-reduced-motion: reduce) { .vision-editorial, .legacy-editorial { animation:none; } }
 @media(max-width:700px){ .legacy-projects-track > div { flex-basis:84vw; }.legacy-project,.legacy-project-image { min-height:0; height:auto; }.legacy-project-image { height:370px; }.footer-invitation { min-height:36vh; padding:3rem 0 1.5rem; } }
+@media(max-width:480px){ .residence-choices button { min-height:100px; padding:1.2rem; font-size:clamp(1.4rem,5vw,1.8rem); }.planner-step { font-size:.58rem; }.planner-hero h1 { font-size:clamp(2.2rem,10vw,3rem); }.planner-hero p:last-child { font-size:.9rem; }.slider-label strong { font-size:clamp(1.4rem,6vw,1.8rem); }.payment-input input { font-size:clamp(1.6rem,6vw,2.2rem); }.estimate strong { font-size:clamp(2rem,8vw,3rem); }.legacy-projects-track > div { flex-basis:88vw; }.legacy-project-image { height:280px; }.legacy-project h3 { font-size:1.6rem; } }
+@media(max-width:400px){ .planner-hero h1 { font-size:clamp(1.8rem,9vw,2.4rem); }.residence-choices button { min-height:80px; padding:.9rem; font-size:clamp(1.1rem,5vw,1.4rem); }.planner-hero p:last-child { font-size:.82rem; }.legacy-project-image { height:220px; }.legacy-projects-track > div { flex-basis:92vw; } }
 
 /* Vision stays warm and dimensional instead of opening into a stark white chapter. */
 .vision-principles { background:radial-gradient(circle at 85% 15%, rgba(151,119,54,.22), transparent 30%), #17130f; color:#f4f0e8; }.vision-principles .eyebrow { color:#d0b46c; }.vision-values { border-color:rgba(244,240,232,.22); }.vision-values > div { border-color:rgba(244,240,232,.22); }.vision-value-item h3 { color:#f4f0e8; }.vision-value-item p { color:#bdb5a8; }.vision-value-num { color:#d0b46c; }
@@ -1459,6 +1461,186 @@
   .legacy-stat-num {
     font-size: 1.6rem;
   }
+
+  .property-card {
+    min-height: min(50vh, 420px);
+  }
+
+  .property-card-body {
+    padding: 1.5rem;
+  }
+
+  .property-card-title {
+    font-size: clamp(1.8rem, 7vw, 2.75rem);
+  }
+
+  .property-card-desc {
+    -webkit-line-clamp: 3;
+    font-size: .9rem;
+  }
+
+  .details-config-header,
+  .details-config-row {
+    font-size: .72rem;
+    padding: 8px 10px;
+  }
+
+  .go-to-top {
+    width: 44px;
+    height: 44px;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+/* ================= SMALL PHONES ================= */
+
+@media (max-width: 400px) {
+  .navbar-brand {
+    font-size: .95rem;
+    letter-spacing: .3px;
+  }
+
+  .btn-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .btn-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .nav-left {
+    min-width: 32px;
+  }
+
+  .hero-banner {
+    height: 50vh;
+    min-height: 300px;
+  }
+
+  .hero-slide-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-slide-subtitle {
+    font-size: .85rem;
+  }
+
+  .hero-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .section-subtitle {
+    font-size: .65rem;
+    letter-spacing: 2px;
+  }
+
+  .pricing-card {
+    padding: 24px 18px;
+  }
+
+  .pricing-card h4 {
+    font-size: 1rem;
+  }
+
+  .pricing-amount {
+    font-size: 1.6rem;
+  }
+
+  .service-card {
+    height: 240px;
+  }
+
+  .svc-card {
+    height: 240px;
+  }
+
+  .svc-card__title {
+    font-size: .95rem;
+  }
+
+  .svc-card__content {
+    padding: 16px 14px;
+  }
+
+  .brand-left,
+  .brand-right {
+    padding: 30px 16px;
+  }
+
+  .brand-title {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+  }
+
+  .brand-description {
+    font-size: .88rem;
+  }
+
+  .footer-grid {
+    gap: 24px;
+  }
+
+  .footer h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer h4 {
+    font-size: .85rem;
+  }
+
+  .footer-links a,
+  .footer-contact li {
+    font-size: .8rem;
+  }
+
+  .sidebar-custom {
+    max-width: 240px;
+    width: 240px;
+  }
+
+  .sidebar-custom a {
+    font-size: .82rem;
+    padding: 7px 0;
+  }
+
+  .section-featured,
+  .section-upcoming {
+    padding: 40px 0;
+  }
+
+  .section-details {
+    padding: 90px 0 40px;
+  }
+
+  .details-hero-image {
+    height: 200px;
+  }
+
+  .details-hero-info h1 {
+    font-size: 1.4rem;
+  }
+
+  .details-price {
+    font-size: 1.5rem;
+  }
+
+  .form-input {
+    padding: 10px 14px;
+    font-size: .82rem;
+  }
+
+  .form-submit {
+    padding: 10px 28px;
+    font-size: .78rem;
+  }
 }
 
 /* ================= PRINT STYLES ================= */
@@ -1595,6 +1777,30 @@
 
 .brand-title{
     font-size:2.6rem;
+}
+
+}
+
+@media(max-width:480px){
+
+.brand-left,
+.brand-right{
+    padding:40px 20px;
+    min-height:40vh;
+}
+
+.brand-description{
+    margin-left:0;
+    font-size:.95rem;
+}
+
+.brand-title{
+    font-size:2rem;
+}
+
+.brand-subtitle{
+    font-size:.75rem;
+    letter-spacing:4px;
 }
 
 }

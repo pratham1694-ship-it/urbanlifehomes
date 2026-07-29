@@ -149,3 +149,48 @@
     bottom: 1.5rem;
   }
 }
+
+@media (max-width: 480px) {
+  .hero-banner {
+    height: 55vh;
+    min-height: 320px;
+  }
+
+  .hero-slide-title {
+    font-size: clamp(1.4rem, 7vw, 1.8rem);
+  }
+
+  .hero-slide-subtitle {
+    font-size: .85rem;
+    max-width: 90%;
+  }
+
+  .hero-slide-content {
+    padding: 1rem;
+  }
+
+  .hero-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .hero-dots {
+    gap: .5rem;
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-banner {
+    height: 50vh;
+    min-height: 280px;
+  }
+
+  .hero-slide-title {
+    font-size: 1.2rem;
+  }
+
+  .hero-slide-subtitle {
+    font-size: .78rem;
+  }
+}
