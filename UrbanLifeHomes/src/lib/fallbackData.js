@@ -1,8 +1,8 @@
 export const FALLBACK_PROPERTIES = [
   {
     slug: "sapphire-enclave",
-    image: "/src/assets/15.png",
-    images: ["/src/assets/15.png"],
+    image: "/images/15.png",
+    images: ["/images/15.png"],
     title: "Sapphire Enclave",
     tagline: "Premium 2 & 3 BHK Luxury Apartments",
     location: "Plot No. 15, Sector 107, Noida",
@@ -32,8 +32,8 @@ export const FALLBACK_PROPERTIES = [
   },
   {
     slug: "plot-12a",
-    image: "/src/assets/12A.png",
-    images: ["/src/assets/12A.png"],
+    image: "/images/12A.png",
+    images: ["/images/12A.png"],
     title: "Sapphire Enclave",
     tagline: "Premium 2 & 3 BHK Luxury Apartments — Plot 12A",
     location: "Plot 12A, Sector 107, Noida",
@@ -66,8 +66,8 @@ export const FALLBACK_PROPERTIES = [
   },
   {
     slug: "plot-5a",
-    image: "/src/assets/5A.png",
-    images: ["/src/assets/5A.png", "/src/assets/5a 2.png"],
+    image: "/images/5A.png",
+    images: ["/images/5A.png", "/images/5a 2.png"],
     title: "HC Homz Plot 5A",
     tagline: "Premium 2 & 3 BHK Residences",
     location: "Plot 5A, Sector 107, Noida",
@@ -97,49 +97,49 @@ export const FALLBACK_PROPERTIES = [
   // ================= COMPLETED PROJECTS =================
   {
     slug: "shakti-khand-4-724",
-    image: "/src/assets/shakti khand 4 724.png",
+    image: "/images/shakti khand 4 724.png",
     title: "Shakti Khand 4 724",
     description: "Modern independent floors showcasing contemporary design and premium construction quality.",
     category: "completed",
   },
   {
     slug: "166-shakti-khand-2",
-    image: "/src/assets/166 shakti khand 2.png",
+    image: "/images/166 shakti khand 2.png",
     title: "166 Shakti Khand 2",
     description: "Contemporary independent builder floors with elegant architecture and premium finishes.",
     category: "completed",
   },
   {
     slug: "niti-khand-2-185",
-    image: "/src/assets/niti khand 2 185.png",
+    image: "/images/niti khand 2 185.png",
     title: "Niti Khand 2 185",
     description: "Classic residential project offering spacious homes with refined architectural character.",
     category: "completed",
   },
   {
     slug: "gyan-khand-2-indirapuram",
-    image: "/src/assets/gyan khand 2 indirapuram.png",
+    image: "/images/gyan khand 2 indirapuram.png",
     title: "Gyan Khand 2 Indirapuram",
     description: "Elegant luxury apartments with timeless architecture and thoughtfully crafted interiors.",
     category: "completed",
   },
   {
     slug: "gyan-khand-1-175",
-    image: "/src/assets/gyan khand 1 175.png",
+    image: "/images/gyan khand 1 175.png",
     title: "Gyan Khand 1 175",
     description: "Sophisticated residential development blending modern aesthetics with everyday comfort.",
     category: "completed",
   },
   {
     slug: "gyan-khand-1-176",
-    image: "/src/assets/gyan khand 1 176.png",
+    image: "/images/gyan khand 1 176.png",
     title: "Gyan Khand 1 176",
     description: "Premium multi-storey residence designed for spacious, contemporary urban living.",
     category: "completed",
   },
   {
     slug: "577-niti-khand-1-indirapuram",
-    image: "/src/assets/577, Niti khand 1, Indirapuram.jpg.jpeg",
+    image: "/images/577, Niti khand 1, Indirapuram.jpg.jpeg",
     title: "577 Niti Khand 1 Indirapuram",
     description: "Modern luxury residence featuring bold design, spacious layouts, and refined detailing.",
     category: "completed",
@@ -162,10 +162,10 @@ export const FALLBACK_SITE_SETTINGS = {
 };
 
 export const FALLBACK_SERVICES = [
-  { title: "Residential Projects", image: "/src/assets/hero.png" },
-  { title: "Commercial Spaces", image: "/src/assets/image.png" },
-  { title: "Villa Communities", image: "/src/assets/image (1).png" },
-  { title: "Interior Design", image: "/src/assets/hero.png" },
+  { title: "Residential Projects", image: "/images/hero.png" },
+  { title: "Commercial Spaces", image: "/images/image.png" },
+  { title: "Villa Communities", image: "/images/image (1).png" },
+  { title: "Interior Design", image: "/images/hero.png" },
 ];
 
 export const FALLBACK_VISION = {
@@ -197,9 +197,9 @@ export const FALLBACK_LEGACY = {
 };
 
 export const FALLBACK_BANNERS = [
-  { title: "Sapphire Enclave", subtitle: "Premium 2 & 3 BHK Apartments — Plot 15, Sector 107, Noida", image: "/src/assets/15.png" },
-  { title: "Sapphire Enclave", subtitle: "Premium 2 & 3 BHK Apartments — Plot 12A, Sector 107, Noida", image: "/src/assets/12A.png" },
-  { title: "HC Homz Plot 5A", subtitle: "Premium 2 & 3 BHK Residences — Plot 5A, Sector 107, Noida", image: "/src/assets/5A.png" },
+  { title: "Sapphire Enclave", subtitle: "Premium 2 & 3 BHK Apartments — Plot 15, Sector 107, Noida", image: "/images/15.png" },
+  { title: "Sapphire Enclave", subtitle: "Premium 2 & 3 BHK Apartments — Plot 12A, Sector 107, Noida", image: "/images/12A.png" },
+  { title: "HC Homz Plot 5A", subtitle: "Premium 2 & 3 BHK Residences — Plot 5A, Sector 107, Noida", image: "/images/5A.png" },
 ];
 
 export const FALLBACK_PRICING = [
