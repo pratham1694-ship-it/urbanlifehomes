@@ -41,7 +41,7 @@ function PixelBlastBackground() {
         <PixelBlast
           variant="square"
           pixelSize={4}
-          imageSrc="/images/WhatsApp Image 2026-07-25 at 17.50.53.jpeg"
+          imageSrc="/images/whatsapp-2026-07-25-175053.jpeg"
           color="#2a0808"
           patternScale={2}
           patternDensity={1}
@@ -306,7 +306,7 @@ function HomePage() {
         <div className="brand-right">
           <ScrollReveal animation="zoom-in" delay={300}>
             <div className="brand-image-wrapper">
-              <img src="/images/FRONT copy.svg" alt="Urban Life Homes" className="brand-image" />
+              <img src="/images/front-copy.svg" alt="Urban Life Homes" className="brand-image" />
             </div>
           </ScrollReveal>
         </div>

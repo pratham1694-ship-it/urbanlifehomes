@@ -20,7 +20,7 @@ export default function Vision() {
         <div className="vision-statement">
           <ScrollReveal animation="fade-up"><p className="eyebrow">WHAT WE STAND FOR / 01</p><h2>{v.heading}</h2></ScrollReveal>
         </div>
-        <div className="vision-image-wrap"><img src="/images/FRONT copy.svg" alt="Urban Life Homes architectural detail" /><span>Thoughtful by design</span></div>
+        <div className="vision-image-wrap"><img src="/images/front-copy.svg" alt="Urban Life Homes architectural detail" /><span>Thoughtful by design</span></div>
         <ScrollReveal animation="fade-up" delay={150}><p className="vision-description">{v.description}</p></ScrollReveal>
       </section>
 

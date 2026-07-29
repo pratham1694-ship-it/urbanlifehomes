@@ -5,8 +5,8 @@ import "./PropertyJourney.css";
 
 const moments = [
   { label: "Arrival", title: "A quieter way home", text: "An address composed around light, proportion and a sense of arrival.", image: "/images/15.png" },
-  { label: "Living", title: "Room to exhale", text: "Generous openings, considered layouts and a home that follows the rhythm of your day.", image: "/images/5A.png" },
-  { label: "After hours", title: "The city, at a distance", text: "Private balconies create a slower, more personal view of the evening.", image: "/images/12A.png" },
+  { label: "Living", title: "Room to exhale", text: "Generous openings, considered layouts and a home that follows the rhythm of your day.", image: "/images/5a.png" },
+  { label: "After hours", title: "The city, at a distance", text: "Private balconies create a slower, more personal view of the evening.", image: "/images/12a.png" },
 ];
 
 export default function PropertyJourney() {
