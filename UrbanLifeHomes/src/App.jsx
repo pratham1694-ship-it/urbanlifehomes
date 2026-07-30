@@ -94,7 +94,7 @@ function Navbar() {
 
         <div className="nav-center">
           <Link className="navbar-brand" to="/">
-            URBAN LIFE HOMES
+            URBAN LiFE HOMES
           </Link>
 
           <ul className="navbar-nav flex-row">
