@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import { ArrowDownRight, Compass, Plus } from "lucide-react";
+import { ArrowDownRight, Compass } from "lucide-react";
 import { FALLBACK_PROPERTIES } from "../lib/fallbackData";
 import "./PropertyJourney.css";
 
 const moments = [
   { label: "Arrival", title: "A quieter way home", text: "An address composed around light, proportion and a sense of arrival.", image: "/images/15.png" },
-  { label: "Living", title: "Room to exhale", text: "Generous openings, considered layouts and a home that follows the rhythm of your day.", image: "/images/5a.png" },
   { label: "After hours", title: "The city, at a distance", text: "Private balconies create a slower, more personal view of the evening.", image: "/images/12a.png" },
 ];
 
@@ -14,14 +13,7 @@ export default function PropertyJourney() {
 
   return (
     <section className="property-journey" aria-label="A journey through Sapphire Enclave">
-      <div className="journey-intro">
-        <p className="eyebrow">SAPPHIRE ENCLAVE / SECTOR 107, NOIDA</p>
-        <h2>A home is not a collection of rooms.<br />It is a way of moving through the day.</h2>
-        <p className="journey-intro-copy">Scroll through the spaces, materials and quiet moments that shape life at Urban Life Homes.</p>
-        <span className="journey-scroll"><ArrowDownRight size={17} /> Begin the walkthrough</span>
-      </div>
-
-      <div className="journey-progress" aria-hidden="true"><span /> <small>01 — 03</small></div>
+      <div className="journey-progress" aria-hidden="true"><span /> <small>01 — 02</small></div>
 
       {moments.map((moment, index) => (
         <article className={`journey-scene journey-scene-${index + 1}`} key={moment.label}>
@@ -31,7 +23,6 @@ export default function PropertyJourney() {
             <p className="eyebrow">{String(index + 1).padStart(2, "0")} / {moment.label}</p>
             <h3>{moment.title}</h3>
             <p>{moment.text}</p>
-            {index === 1 && <button className="material-hotspot" type="button"><Plus size={15} /> Discover the material palette</button>}
           </div>
         </article>
       ))}
