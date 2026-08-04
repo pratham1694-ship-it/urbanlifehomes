@@ -36,8 +36,20 @@ function ScrollToTop() {
 }
 
 function PixelBlastBackground() {
+  const [useAnimatedBackground, setUseAnimatedBackground] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 769px) and (prefers-reduced-motion: no-preference)");
+    const updateBackground = () => setUseAnimatedBackground(media.matches);
+
+    updateBackground();
+    media.addEventListener("change", updateBackground);
+    return () => media.removeEventListener("change", updateBackground);
+  }, []);
+
   return (
     <div className="pixelblast-bg">
+      {useAnimatedBackground && (
         <PixelBlast
           variant="square"
           pixelSize={4}
@@ -58,6 +70,7 @@ function PixelBlastBackground() {
           edgeFade={0.25}
           transparent
         />
+      )}
     </div>
   );
 }
@@ -70,7 +83,7 @@ function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -183,7 +196,7 @@ function GoToTop() {
     const handleScroll = () => {
       setVisible(window.scrollY > 400);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
