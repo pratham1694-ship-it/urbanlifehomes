@@ -53,9 +53,9 @@ export default function WelcomeIntro({ onComplete }) {
         {phase !== 'brand' && phase !== 'clearing' && greetings.map((g, i) => {
           if (i >= currentIndex) return null;
           const offset = currentIndex - i;
-          if (offset > 4) return null;
+          if (offset > 6) return null;
 
-          const position = 4 - offset;
+          const position = 6 - offset;
 
           return (
             <span
