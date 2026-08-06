@@ -32,28 +32,6 @@
   color: #f4f0e8;
 }
 
-.project-overview-checks {
-  margin-top: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 28px;
-}
-
-.project-overview-checks span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: #d8d2c6;
-}
-
-.project-overview-checks span svg {
-  color: #b8863a;
-  flex-shrink: 0;
-}
-
 .project-overview-highlights {
   flex: 1 1 200px;
   background: linear-gradient(145deg, #241f16, #1c1811);
