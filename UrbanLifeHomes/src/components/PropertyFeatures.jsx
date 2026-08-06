@@ -1,4 +1,4 @@
-import { Building2, MapPin, Route, ShieldCheck, Droplets, Wind } from "lucide-react";
+import { Building2, MapPin, Route, ShieldCheck, Droplets } from "lucide-react";
 import "./PropertyFeatures.css";
 
 const FEATURES = [
@@ -7,7 +7,6 @@ const FEATURES = [
   { icon: Route, title: "Excellent Road Network", text: "Smooth access to key destinations" },
   { icon: ShieldCheck, title: "24×7 Security", text: "Modern security infrastructure" },
   { icon: Droplets, title: "Adequate Water Supply", text: "Reliable infrastructure" },
-  { icon: Wind, title: "Cross-Ventilation", text: "Abundant sunlight & natural airflow" },
 ];
 
 export default function PropertyFeatures({ title = "Why Sapphire Enclave" }) {
