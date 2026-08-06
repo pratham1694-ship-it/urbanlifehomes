@@ -162,10 +162,10 @@ export const FALLBACK_SITE_SETTINGS = {
 };
 
 export const FALLBACK_SERVICES = [
-  { title: "Residential Projects", image: "/images/hero.png" },
-  { title: "Commercial Spaces", image: "/images/image.png" },
-  { title: "Villa Communities", image: "/images/image-1.png" },
-  { title: "Interior Design", image: "/images/hero.png" },
+  { title: "Construction", image: "/images/Residential-3.jpg", description: "Turnkey construction, structural works and end-to-end development with premium quality standards." },
+  { title: "Interior Designs", image: "/images/interior.jpg", description: "Bespoke interiors that blend elegance, function and thoughtful detailing." },
+  { title: "Plotting", image: "/images/plotting.jpg", description: "Prime plotted developments planned for value and long-term growth." },
+  { title: "Residential Projects", image: "/images/residential1.jpg", description: "Premium apartments and residences crafted for modern urban living." },
 ];
 
 export const FALLBACK_VISION = {

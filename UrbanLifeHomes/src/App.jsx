@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import WelcomeIntro from "./components/WelcomeIntro";
 
@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 import PropertyDetails from "./pages/PropertyDetails";
 import Upcoming from "./pages/Upcoming";
 import Projects from "./pages/Projects";
+import SearchOverlay from "./components/SearchOverlay";
 import { useCollection, useDoc } from "./lib/useData";
 import { FALLBACK_SERVICES, FALLBACK_SITE_SETTINGS } from "./lib/fallbackData";
 import "./components/ScrollReveal.css";
@@ -75,7 +76,7 @@ function PixelBlastBackground() {
   );
 }
 
-function Navbar() {
+function Navbar({ onOpenSearch }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
 
@@ -86,6 +87,18 @@ function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleShortcut = (e) => {
+      if (e.key !== "/") return;
+      const tag = document.activeElement?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      e.preventDefault();
+      onOpenSearch();
+    };
+    window.addEventListener("keydown", handleShortcut);
+    return () => window.removeEventListener("keydown", handleShortcut);
+  }, [onOpenSearch]);
 
   return (
     <nav className={`navbar navbar-custom ${isScrolled ? "navbar-scrolled" : ""} ${pathname === "/pricing" ? "navbar-pricing" : ""}`}>
@@ -138,7 +151,7 @@ function Navbar() {
               <path d="M13.601 2.326A7.94 7.94 0 0 0 8 0C3.586 0 .007 3.578.007 8c0 1.41.367 2.78 1.064 3.98L.057 16l4.113-1.084A7.93 7.93 0 0 0 8 16c4.411 0 7.993-3.578 7.993-7.994A7.94 7.94 0 0 0 13.601 2.326zM8 14.4A6.405 6.405 0 0 1 4.39 12.8l-.28-.163-2.44.645.653-2.38-.183-.29A6.37 6.37 0 0 1 1.6 8c0-3.535 2.876-6.41 6.4-6.4 3.524 0 6.4 2.874 6.4 6.4 0 3.535-2.876 6.4-6.4 6.4m3.507-4.72c-.193-.096-1.14-.562-1.317-.627-.182-.065-.315-.096-.448.096-.134.192-.515.627-.63.756-.117.128-.233.145-.426.049-.193-.096-.815-.3-1.552-.93-.572-.49-.958-1.1-1.07-1.223.096-.117.193-.29.289-.434.098-.145.13-.243.196-.405.065-.165.033-.31-.015-.434-.049-.128-.448-1.083-.614-1.482-.162-.39-.327-.337-.448-.343-.117-.005-.249-.006-.382-.006-.134 0-.348.049-.53.243-.182.193-.695.68-.695 1.658 0 .978.711 1.922.81 2.053.096.13 1.391 2.124 3.371 2.978.471.204.838.325 1.124.417.473.151.902.129 1.24.078.379-.056 1.14-.467 1.3-1.014.16-.547.16-1.016.112-1.113-.049-.096-.182-.155-.375-.251z" />
             </svg>
           </a>
-          <button className="btn-icon" aria-label="Search">
+          <button id="navSearchBtn" className="btn-icon" aria-label="Search" title="Search ( / )" onClick={onOpenSearch}>
             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" viewBox="0 0 16 16">
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
             </svg>
@@ -218,7 +231,7 @@ function Footer() {
       <div className="container">
         <div className="footer-invitation">
           <p>URBAN LIFE HOMES / PRIVATE VIEWINGS</p>
-          <Link to="/contact">Book your visit <span>↗</span></Link>
+          <Link to="/contact">Book your visit</Link>
         </div>
         <div className="footer-grid">
           <div className="footer-col footer-about">
@@ -325,7 +338,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section-services">
+      <section id="services" className="section-services">
         <div className="container">
           <ScrollReveal>
             <div className="section-header">
@@ -350,11 +363,16 @@ function HomePage() {
 }
 
 function Layout({ children }) {
+  const [searchOpen, setSearchOpen] = useState(false);
+  const openSearch = useCallback(() => setSearchOpen(true), []);
+  const closeSearch = useCallback(() => setSearchOpen(false), []);
+
   return (
     <>
       <PixelBlastBackground />
-      <Navbar />
+      <Navbar onOpenSearch={openSearch} />
       <Sidebar />
+      <SearchOverlay open={searchOpen} onClose={closeSearch} />
       <div className="main-content main-content-visible">
         {children}
       </div>
