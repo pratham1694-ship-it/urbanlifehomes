@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useContext, useMemo } from "react";
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import WelcomeIntro from "./components/WelcomeIntro";
 
@@ -16,6 +16,8 @@ import PropertyDetails from "./pages/PropertyDetails";
 import Upcoming from "./pages/Upcoming";
 import Projects from "./pages/Projects";
 import SearchOverlay from "./components/SearchOverlay";
+import BookingModal from "./components/BookingModal";
+import { BookingContext } from "./lib/booking";
 import { useCollection, useDoc } from "./lib/useData";
 import { FALLBACK_SERVICES, FALLBACK_SITE_SETTINGS } from "./lib/fallbackData";
 import "./components/ScrollReveal.css";
@@ -79,6 +81,10 @@ function PixelBlastBackground() {
 function Navbar({ onOpenSearch }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
+  const { openBooking } = useBookingContext();
+  const { data: settings } = useDoc("site-settings");
+  const s = settings || FALLBACK_SITE_SETTINGS;
+  const waLink = `https://wa.me/${(s.phone?.[0] || "").replace(/\D/g, "")}`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -145,8 +151,8 @@ function Navbar({ onOpenSearch }) {
         </div>
 
         <div className="nav-right">
-          <Link to="/contact" className="btn btn-enquire">Enquire</Link>
-          <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="btn-icon" aria-label="WhatsApp">
+          <button type="button" className="btn btn-enquire" onClick={() => openBooking()}>Enquire</button>
+          <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-icon" aria-label="WhatsApp">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" viewBox="0 0 16 16">
               <path d="M13.601 2.326A7.94 7.94 0 0 0 8 0C3.586 0 .007 3.578.007 8c0 1.41.367 2.78 1.064 3.98L.057 16l4.113-1.084A7.93 7.93 0 0 0 8 16c4.411 0 7.993-3.578 7.993-7.994A7.94 7.94 0 0 0 13.601 2.326zM8 14.4A6.405 6.405 0 0 1 4.39 12.8l-.28-.163-2.44.645.653-2.38-.183-.29A6.37 6.37 0 0 1 1.6 8c0-3.535 2.876-6.41 6.4-6.4 3.524 0 6.4 2.874 6.4 6.4 0 3.535-2.876 6.4-6.4 6.4m3.507-4.72c-.193-.096-1.14-.562-1.317-.627-.182-.065-.315-.096-.448.096-.134.192-.515.627-.63.756-.117.128-.233.145-.426.049-.193-.096-.815-.3-1.552-.93-.572-.49-.958-1.1-1.07-1.223.096-.117.193-.29.289-.434.098-.145.13-.243.196-.405.065-.165.033-.31-.015-.434-.049-.128-.448-1.083-.614-1.482-.162-.39-.327-.337-.448-.343-.117-.005-.249-.006-.382-.006-.134 0-.348.049-.53.243-.182.193-.695.68-.695 1.658 0 .978.711 1.922.81 2.053.096.13 1.391 2.124 3.371 2.978.471.204.838.325 1.124.417.473.151.902.129 1.24.078.379-.056 1.14-.467 1.3-1.014.16-.547.16-1.016.112-1.113-.049-.096-.182-.155-.375-.251z" />
             </svg>
@@ -189,14 +195,6 @@ function Sidebar() {
           <li><Link to="/upcoming" onClick={dismissOffcanvas}>Upcoming Projects</Link></li>
           <li><Link to="/contact" onClick={dismissOffcanvas}>Contact</Link></li>
         </ul>
-        <div className="sidebar-divider"></div>
-        <div className="sidebar-contact">
-          <p className="sidebar-contact-label">Get in touch</p>
-          <a href={`mailto:${s.email}`} className="sidebar-contact-link">{s.email}</a>
-          {s.phone && s.phone[0] && (
-            <a href={`tel:${s.phone[0]}`} className="sidebar-contact-link">{s.phone[0]}</a>
-          )}
-        </div>
       </div>
     </div>
   );
@@ -225,13 +223,14 @@ function GoToTop() {
 function Footer() {
   const { data: settings } = useDoc("site-settings");
   const s = settings || FALLBACK_SITE_SETTINGS;
+  const { openBooking } = useBookingContext();
 
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-invitation">
           <p>URBAN LIFE HOMES / PRIVATE VIEWINGS</p>
-          <Link to="/contact">Book your visit</Link>
+          <button type="button" className="footer-book" onClick={() => openBooking()}>Book your visit</button>
         </div>
         <div className="footer-grid">
           <div className="footer-col footer-about">
@@ -362,23 +361,33 @@ function HomePage() {
   );
 }
 
+function useBookingContext() {
+  return useContext(BookingContext);
+}
+
 function Layout({ children }) {
   const [searchOpen, setSearchOpen] = useState(false);
+  const [booking, setBooking] = useState({ open: false, project: "" });
   const openSearch = useCallback(() => setSearchOpen(true), []);
   const closeSearch = useCallback(() => setSearchOpen(false), []);
+  const openBooking = useCallback((project = "") => setBooking({ open: true, project }), []);
+  const closeBooking = useCallback(() => setBooking((b) => ({ ...b, open: false })), []);
+
+  const bookingValue = useMemo(() => ({ booking, openBooking, closeBooking }), [booking, openBooking, closeBooking]);
 
   return (
-    <>
+    <BookingContext.Provider value={bookingValue}>
       <PixelBlastBackground />
       <Navbar onOpenSearch={openSearch} />
       <Sidebar />
       <SearchOverlay open={searchOpen} onClose={closeSearch} />
+      <BookingModal booking={booking} onClose={closeBooking} />
       <div className="main-content main-content-visible">
         {children}
       </div>
       <GoToTop />
       <Footer />
-    </>
+    </BookingContext.Provider>
   );
 }
 
