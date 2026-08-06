@@ -50,7 +50,6 @@ export default function WelcomeIntro({ onComplete }) {
 
   return (
     <div className={`welcome-intro ${exitAnimation ? 'welcome-exit' : ''}`}>
-      <div className="welcome-aura" />
       <div className="welcome-bg">
         {leaving && (
           <span key={`leave-${leaving.key}`} className="welcome-greeting welcome-greeting-leave">
