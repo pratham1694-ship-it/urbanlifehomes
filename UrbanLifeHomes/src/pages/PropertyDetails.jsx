@@ -7,6 +7,7 @@ import PropertyFeatures from "../components/PropertyFeatures";
 import FloorPlans from "../components/FloorPlans";
 import PremiumSpecs from "../components/PremiumSpecs";
 import LocationAdvantages from "../components/LocationAdvantages";
+import ProjectOverview from "../components/ProjectOverview";
 
 function PropertyNotFound() {
   return (
@@ -160,24 +161,7 @@ export default function PropertyDetails() {
 
         <div className="details-body">
           <div className="details-main">
-            <div className="details-section">
-              <h3>About the Project</h3>
-              <p>{property.description}</p>
-            </div>
-
-            {property.highlights && property.highlights.length > 0 && (
-              <div className="details-section">
-                <h3>Highlights</h3>
-                <ul className="details-highlights">
-                  {property.highlights.map((item, i) => (
-                    <li key={i}>
-                      <svg width="16" height="16" fill="none" stroke="#e0c870" strokeWidth="2" viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <ProjectOverview property={property} />
 
             {property.configurations && property.configurations.length > 0 && (
               <div className="details-section">
