@@ -73,7 +73,7 @@ export default function WelcomeIntro({ onComplete }) {
         {phase === 'brand' && (
           <div className="welcome-brand">
             <div className="welcome-brand-line" />
-            <span className="welcome-brand-text">Urban Life Homes</span>
+            <span className="welcome-brand-text">URBAN LiFE HOMES</span>
             <div className="welcome-brand-line" />
           </div>
         )}
