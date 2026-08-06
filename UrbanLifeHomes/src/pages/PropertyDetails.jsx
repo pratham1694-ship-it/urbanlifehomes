@@ -4,6 +4,9 @@ import { useProperty } from "../lib/useData";
 import { useBooking } from "../lib/booking";
 import { FALLBACK_PROPERTIES } from "../lib/fallbackData";
 import PropertyFeatures from "../components/PropertyFeatures";
+import FloorPlans from "../components/FloorPlans";
+import PremiumSpecs from "../components/PremiumSpecs";
+import LocationAdvantages from "../components/LocationAdvantages";
 
 function PropertyNotFound() {
   return (
@@ -150,6 +153,10 @@ export default function PropertyDetails() {
         </div>
 
         <PropertyFeatures title={`Why ${property.title}`} />
+
+        <FloorPlans />
+        <PremiumSpecs />
+        <LocationAdvantages />
 
         <div className="details-body">
           <div className="details-main">

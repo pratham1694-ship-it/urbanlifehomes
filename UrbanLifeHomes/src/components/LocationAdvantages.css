@@ -1,0 +1,31 @@
+.location-advantages-panel {
+  background: linear-gradient(145deg, #241f16, #1c1811);
+  padding: 30px 28px;
+  border-radius: 24px;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px 24px;
+  border: 1px solid rgba(240, 235, 227, 0.08);
+}
+
+.location-advantage-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #d8d2c6;
+  padding: 6px 0;
+}
+
+.location-advantage-item svg {
+  color: #b8863a;
+  width: 32px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+  .location-advantages-panel { padding: 24px 20px; }
+}
