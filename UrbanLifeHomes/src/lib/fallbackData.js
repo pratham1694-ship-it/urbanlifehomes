@@ -3,15 +3,15 @@ export const FALLBACK_PROPERTIES = [
     slug: "sapphire-enclave",
     image: "/images/15.png",
     images: ["/images/15.png"],
-    title: "Sapphire Enclave",
+    title: "Plot 15",
     tagline: "Premium 2 & 3 BHK Luxury Apartments",
-    location: "Plot No. 15, Sector 107, Noida",
+    location: "Plot 15, Sector 107, Noida",
     price: "Call for Price",
     status: "Under Construction",
     category: "current",
     possession: "Call for Possession",
     rera: "UPRERAPRJ4521",
-    description: "Discover Luxury Living at Sapphire Enclave. Welcome to HC Homz Sapphire Enclave, a premium residential development offering beautifully designed 2 BHK and 3 BHK luxury apartments in Sector 107, Noida. Designed with elegance, functionality, and comfort in mind, every residence provides spacious interiors, abundant natural light, excellent ventilation, and premium specifications. Whether you're looking for your dream home or a valuable investment, Sapphire Enclave offers contemporary living in one of Noida's fastest-growing residential neighbourhoods.",
+    description: "Discover Luxury Living at Sapphire Enclave. Welcome to Sapphire Enclave, a premium residential development offering beautifully designed 2 BHK and 3 BHK luxury apartments in Sector 107, Noida. Designed with elegance, functionality, and comfort in mind, every residence provides spacious interiors, abundant natural light, excellent ventilation, and premium specifications. Whether you're looking for your dream home or a valuable investment, Sapphire Enclave offers contemporary living in one of Noida's fastest-growing residential neighbourhoods.",
     highlights: [
       "Health Centres Nearby",
       "Educational Institutions Nearby",
@@ -35,14 +35,14 @@ export const FALLBACK_PROPERTIES = [
     image: "/images/12a.png",
     images: ["/images/12a.png"],
     title: "Sapphire Enclave",
-    tagline: "Premium 2 & 3 BHK Luxury Apartments — Plot 12A",
-    location: "Plot 12A, Sector 107, Noida",
+    tagline: "Premium 2 & 3 BHK Luxury Apartments — Plot 12",
+    location: "Plot 12, Sector 107, Noida",
     price: "Call for Price",
     status: "Under Construction",
     category: "current",
     possession: "Call for Possession",
     rera: "",
-    description: "Welcome to HC Homz Sapphire Enclave at Plot 12A, a premium residential development offering beautifully designed 2 BHK and 3 BHK luxury apartments in Sector 107, Noida. Designed with elegance, functionality, and comfort in mind, every residence provides spacious interiors, abundant natural light, excellent ventilation, and premium specifications.",
+    description: "Welcome to Sapphire Enclave at Plot 12, a premium residential development offering beautifully designed 2 BHK and 3 BHK luxury apartments in Sector 107, Noida. Designed with elegance, functionality, and comfort in mind, every residence provides spacious interiors, abundant natural light, excellent ventilation, and premium specifications.",
     highlights: [
       "Intelligent Space Planning",
       "Large Windows for Abundant Daylight",
@@ -68,7 +68,7 @@ export const FALLBACK_PROPERTIES = [
     slug: "plot-5a",
     image: "/images/5a.png",
     images: ["/images/5a.png", "/images/5a-2.png"],
-    title: "HC Homz Plot 5A",
+    title: "Plot 5A",
     tagline: "Premium 2 & 3 BHK Residences",
     location: "Plot 5A, Sector 107, Noida",
     price: "Call for Price",
@@ -76,7 +76,7 @@ export const FALLBACK_PROPERTIES = [
     category: "current",
     possession: "Call for Possession",
     rera: "",
-    description: "Welcome to HC Homz Plot 5A, a thoughtfully designed residential development offering premium 2 and 3 BHK apartments in the heart of Sector 107, Noida. Combining modern architecture, spacious layouts, premium specifications, and excellent connectivity, Plot 5A offers everything today's families need for a comfortable and sophisticated lifestyle. Every apartment maximizes usable living space while ensuring abundant daylight, cross ventilation, and practical room layouts.",
+    description: "Welcome to Plot 5A, a thoughtfully designed residential development offering premium 2 and 3 BHK apartments in the heart of Sector 107, Noida. Combining modern architecture, spacious layouts, premium specifications, and excellent connectivity, Plot 5A offers everything today's families need for a comfortable and sophisticated lifestyle. Every apartment maximizes usable living space while ensuring abundant daylight, cross ventilation, and practical room layouts.",
     highlights: [
       "Smart Space Planning",
       "Large Plate Glass Windows",
@@ -197,9 +197,9 @@ export const FALLBACK_LEGACY = {
 };
 
 export const FALLBACK_BANNERS = [
-  { title: "Sapphire Enclave", subtitle: "Premium 2 & 3 BHK Apartments — Plot 15, Sector 107, Noida", image: "/images/15.png" },
-  { title: "Sapphire Enclave", subtitle: "Premium 2 & 3 BHK Apartments — Plot 12A, Sector 107, Noida", image: "/images/12a.png" },
-  { title: "HC Homz Plot 5A", subtitle: "Premium 2 & 3 BHK Residences — Plot 5A, Sector 107, Noida", image: "/images/5a.png" },
+  { title: "Plot 15", subtitle: "Premium 2 & 3 BHK Apartments — Plot 15, Sector 107, Noida", image: "/images/15.png" },
+  { title: "Sapphire Enclave", subtitle: "Premium 2 & 3 BHK Apartments — Plot 12, Sector 107, Noida", image: "/images/12a.png" },
+  { title: "Plot 5A", subtitle: "Premium 2 & 3 BHK Residences — Plot 5A, Sector 107, Noida", image: "/images/5a.png" },
 ];
 
 export const FALLBACK_PRICING = [

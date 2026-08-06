@@ -153,11 +153,13 @@ export default function PropertyDetails() {
           </div>
         </div>
 
+        <ProjectOverview property={property} />
+
         <PropertyFeatures title={`Why ${property.title}`} />
 
-        <FloorPlans />
-        <PremiumSpecs />
         <LocationAdvantages />
+        <PremiumSpecs />
+        <FloorPlans />
 
         <div className="details-body">
           <div className="details-main">
