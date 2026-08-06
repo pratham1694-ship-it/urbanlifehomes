@@ -5,16 +5,12 @@ const greetings = [
   { text: 'Hello' },
   { text: 'नमस्कार' },
   { text: 'ہیلو'},
-  { text: 'Vanakkam' },
+  { text: 'வணக்கம்' },
   { text: 'કેમ છો' },
-  { text: 'ನಮಸ್ಕಾರ' },
-  { text: 'നമസ്കാരം' },
   { text: 'ਸਤ ਸ੍ਰੀ ਅਕਾਲ' },
-  { text: 'Hola' },
-  { text: 'こんにちは' },
-  { text: 'Olá' },
-  { text: 'Ciao' },
-  { text: 'Shalom' },
+
+
+
   
 ];
 
