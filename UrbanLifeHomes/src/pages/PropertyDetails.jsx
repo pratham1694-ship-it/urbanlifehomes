@@ -163,8 +163,6 @@ export default function PropertyDetails() {
 
         <div className="details-body">
           <div className="details-main">
-            <ProjectOverview property={property} />
-
             {property.configurations && property.configurations.length > 0 && (
               <div className="details-section">
                 <h3>Configurations & Pricing</h3>
