@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-do
 import WelcomeIntro from "./components/WelcomeIntro";
 
 import HeroBanner from "./components/HeroBanner";
-import PropertyJourney from "./components/PropertyJourney";
 import ScrollReveal from "./components/ScrollReveal";
 import ServiceCard from "./components/ServiceCard";
 import PixelBlast from "./components/PixelBlast";
@@ -314,8 +313,6 @@ function HomePage() {
   return (
     <>
       <HeroBanner />
-
-      <PropertyJourney />
 
       <section className="brand-intro">
         <div className="brand-left">

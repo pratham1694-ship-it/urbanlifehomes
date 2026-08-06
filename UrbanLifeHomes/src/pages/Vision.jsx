@@ -1,6 +1,7 @@
 import { useDoc } from "../lib/useData";
 import { FALLBACK_VISION } from "../lib/fallbackData";
 import ScrollReveal from "../components/ScrollReveal";
+import PropertyJourney from "../components/PropertyJourney";
 import "../components/ScrollReveal.css";
 
 
@@ -23,6 +24,8 @@ export default function Vision() {
         <div className="vision-image-wrap"><img src="/images/front-copy.svg" alt="Urban Life Homes architectural detail" /><span>Thoughtful by design</span></div>
         <ScrollReveal animation="fade-up" delay={150}><p className="vision-description">{v.description}</p></ScrollReveal>
       </section>
+
+      <PropertyJourney />
 
       <section className="vision-principles">
         <p className="eyebrow">THE PRINCIPLES IN EVERY ADDRESS</p>

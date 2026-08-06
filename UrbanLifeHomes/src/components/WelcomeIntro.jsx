@@ -3,8 +3,8 @@ import './WelcomeIntro.css';
 
 const greetings = ['Hello', 'नमस्कार', 'ہیلو', 'வணக்கம்', 'કેમ છો', 'ਸਤ ਸ੍ਰੀ ਅਕਾਲ'];
 
-const GREETING_MS = 700;
-const LEAVE_MS = 600;
+const GREETING_MS = 580;
+const LEAVE_MS = 520;
 
 export default function WelcomeIntro({ onComplete }) {
   const [index, setIndex] = useState(0);
@@ -16,14 +16,14 @@ export default function WelcomeIntro({ onComplete }) {
     setExitAnimation(true);
     setTimeout(() => {
       onComplete?.();
-    }, 950);
+    }, 850);
   }, [onComplete]);
 
   useEffect(() => {
     if (phase !== 'greetings') return;
 
     if (index >= greetings.length) {
-      const timer = setTimeout(() => setPhase('brand'), 400);
+      const timer = setTimeout(() => setPhase('brand'), 350);
       return () => clearTimeout(timer);
     }
 
@@ -42,7 +42,7 @@ export default function WelcomeIntro({ onComplete }) {
 
   useEffect(() => {
     if (phase !== 'brand') return;
-    const timer = setTimeout(handleComplete, 1600);
+    const timer = setTimeout(handleComplete, 1300);
     return () => clearTimeout(timer);
   }, [phase, handleComplete]);
 
