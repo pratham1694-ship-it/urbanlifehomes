@@ -1,21 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import './WelcomeIntro.css';
 
-const greetings = [
-  { text: 'Hello' },
-  { text: 'नमस्कार' },
-  { text: 'ہیلو'},
-  { text: 'வணக்கம்' },
-  { text: 'કેમ છો' },
-  { text: 'ਸਤ ਸ੍ਰੀ ਅਕਾਲ' },
+const greetings = ['Hello', 'नमस्कार', 'ہیلو', 'வணக்கம்', 'કેમ છો', 'ਸਤ ਸ੍ਰੀ ਅਕਾਲ'];
 
-
-
-  
-];
+const GREETING_MS = 700;
+const LEAVE_MS = 600;
 
 export default function WelcomeIntro({ onComplete }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [index, setIndex] = useState(0);
+  const [leaving, setLeaving] = useState(null);
   const [phase, setPhase] = useState('greetings');
   const [exitAnimation, setExitAnimation] = useState(false);
 
@@ -23,53 +16,52 @@ export default function WelcomeIntro({ onComplete }) {
     setExitAnimation(true);
     setTimeout(() => {
       onComplete?.();
-    }, 800);
+    }, 950);
   }, [onComplete]);
 
   useEffect(() => {
     if (phase !== 'greetings') return;
 
-    if (currentIndex < greetings.length) {
-      const timer = setTimeout(() => {
-        setCurrentIndex(prev => prev + 1);
-      }, 280);
+    if (index >= greetings.length) {
+      const timer = setTimeout(() => setPhase('brand'), 400);
       return () => clearTimeout(timer);
-    } else {
-      setPhase('brand');
     }
-  }, [currentIndex, phase]);
+
+    const timer = setTimeout(() => {
+      setLeaving({ text: greetings[index], key: index });
+      setIndex((prev) => prev + 1);
+    }, GREETING_MS);
+    return () => clearTimeout(timer);
+  }, [index, phase]);
+
+  useEffect(() => {
+    if (!leaving) return;
+    const timer = setTimeout(() => setLeaving(null), LEAVE_MS);
+    return () => clearTimeout(timer);
+  }, [leaving]);
 
   useEffect(() => {
     if (phase !== 'brand') return;
-    const timer = setTimeout(() => {
-      handleComplete();
-    }, 1800);
+    const timer = setTimeout(handleComplete, 1600);
     return () => clearTimeout(timer);
   }, [phase, handleComplete]);
 
+  const active = index < greetings.length ? { text: greetings[index], key: index } : null;
+
   return (
     <div className={`welcome-intro ${exitAnimation ? 'welcome-exit' : ''}`}>
+      <div className="welcome-aura" />
       <div className="welcome-bg">
-        {phase !== 'brand' && phase !== 'clearing' && greetings.map((g, i) => {
-          if (i >= currentIndex) return null;
-          const offset = currentIndex - i;
-          if (offset > 1) return null;
-
-          const position = 1 - offset;
-
-          return (
-            <span
-              key={`${g.text}-${i}`}
-              className={`welcome-greeting welcome-greeting-pos-${position}`}
-              style={{
-                opacity: position === 0 ? 0 : Math.max(0.05, 1 - position * 0.25),
-              }}
-            >
-              {g.text}
-            </span>
-          );
-        })}
-
+        {leaving && (
+          <span key={`leave-${leaving.key}`} className="welcome-greeting welcome-greeting-leave">
+            {leaving.text}
+          </span>
+        )}
+        {active && (
+          <span key={`active-${active.key}`} className="welcome-greeting welcome-greeting-enter">
+            {active.text}
+          </span>
+        )}
         {phase === 'brand' && (
           <div className="welcome-brand">
             <div className="welcome-brand-line" />

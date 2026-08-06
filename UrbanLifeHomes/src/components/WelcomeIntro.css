@@ -2,27 +2,73 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: url("/banner.jpeg") center/cover no-repeat;
+  background: #0b0606;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1), filter 1s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.welcome-intro::after {
+  content: "";
+  position: absolute;
+  inset: -6%;
+  background: url("/banner.jpeg") center/cover no-repeat;
+  animation: kenburns 14s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
 .welcome-intro::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: radial-gradient(ellipse at center, rgba(15, 8, 6, 0.5) 0%, rgba(5, 2, 2, 0.86) 100%);
   pointer-events: none;
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
 }
 
 .welcome-exit {
   opacity: 0;
-  transform: scale(1.05);
+  transform: scale(1.06);
+  filter: blur(8px);
   pointer-events: none;
+}
+
+.welcome-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70vmin;
+  height: 70vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 200, 112, 0.18) 0%, rgba(224, 200, 112, 0.06) 45%, transparent 70%);
+  filter: blur(40px);
+  z-index: 1;
+  animation: auraPulse 3.4s ease-in-out infinite;
+  transform: translate(-50%, -50%) scale(0.9);
+  pointer-events: none;
+}
+
+@keyframes auraPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
 
 .welcome-bg {
@@ -38,97 +84,85 @@
 .welcome-greeting {
   position: absolute;
   font-family: 'Albert Sans', sans-serif;
-  font-weight: 300;
-  color: #cfb695;
+  font-size: clamp(2.4rem, 7vw, 5.2rem);
+  font-weight: 500;
+  color: transparent;
+  background: linear-gradient(105deg, #f7e9cb 0%, #e0c870 30%, #fff8e1 50%, #e0c870 70%, #c4a75a 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
   white-space: nowrap;
   pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  will-change: transform, opacity, font-size;
+  will-change: transform, opacity, filter;
 }
 
-/* Active (topmost) greeting */
-.welcome-greeting-pos-0 {
-  font-size: 5rem;
-  font-weight: 500;
-  opacity: 1 !important;
-  transform: translateY(0) scale(1);
-  text-shadow: 0 0 60px rgba(207, 182, 149, 0.2);
+.welcome-greeting-enter {
+  animation: greetingEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.welcome-greeting-pos-1 {
-  font-size: 3.2rem;
-  transform: translateY(70px) scale(0.92);
+.welcome-greeting-leave {
+  animation: greetingLeave 0.55s cubic-bezier(0.4, 0, 0.6, 1) forwards;
 }
 
-.welcome-greeting-pos-2 {
-  font-size: 2.2rem;
-  transform: translateY(130px) scale(0.85);
+@keyframes greetingEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.88);
+    filter: blur(16px) drop-shadow(0 0 20px rgba(224, 200, 112, 0.1));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0) drop-shadow(0 0 26px rgba(224, 200, 112, 0.32));
+  }
 }
 
-.welcome-greeting-pos-3 {
-  font-size: 1.5rem;
-  transform: translateY(180px) scale(0.8);
+@keyframes greetingLeave {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0) drop-shadow(0 0 26px rgba(224, 200, 112, 0.32));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(1.05);
+    filter: blur(14px) drop-shadow(0 0 16px rgba(224, 200, 112, 0.12));
+  }
 }
 
-.welcome-greeting-pos-4 {
-  font-size: 1.1rem;
-  transform: translateY(220px) scale(0.75);
-}
-
-/* Brand reveal */
 .welcome-brand {
   display: flex;
   align-items: center;
-  gap: 30px;
-  animation: brandReveal 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  gap: clamp(16px, 3vw, 34px);
+  opacity: 0;
+  animation: brandReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
 }
 
 .welcome-brand-text {
   font-family: 'Klavika', sans-serif;
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 4.5vw, 3rem);
   font-weight: 700;
-  color: #cfb695;
-  letter-spacing: 4px;
-  opacity: 0;
-  animation: brandFadeIn 0.6s ease 0.1s forwards;
+  color: transparent;
+  background: linear-gradient(105deg, #f7e9cb 0%, #e0c870 50%, #fff8e1 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: 14px;
+  white-space: nowrap;
+  animation: brandKerning 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards, shimmer 5s linear 1.6s infinite;
 }
 
 .welcome-brand-line {
   width: 0;
   height: 1px;
-  background: rgba(207, 182, 149, 0.4);
-  animation: lineExpand 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-}
-
-/* Brand reveal */
-.welcome-brand {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  animation: brandReveal 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-}
-
-.welcome-brand-text {
-  font-family: 'Klavika', sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: #e0c870;
-  letter-spacing: 4px;
-  opacity: 0;
-  animation: brandFadeIn 0.5s ease 0.1s forwards;
-}
-
-.welcome-brand-line {
-  width: 0;
-  height: 1px;
-  background: rgba(224, 200, 112, 0.4);
-  animation: lineExpand 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  background: linear-gradient(90deg, transparent, rgba(224, 200, 112, 0.65), transparent);
+  animation: lineExpand 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
 }
 
 @keyframes brandReveal {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(26px);
   }
   to {
     opacity: 1;
@@ -136,14 +170,12 @@
   }
 }
 
-@keyframes brandFadeIn {
+@keyframes brandKerning {
   from {
-    opacity: 0;
-    letter-spacing: 12px;
+    letter-spacing: 18px;
   }
   to {
-    opacity: 1;
-    letter-spacing: 4px;
+    letter-spacing: 6px;
   }
 }
 
@@ -152,44 +184,15 @@
     width: 0;
   }
   to {
-    width: 80px;
+    width: clamp(48px, 8vw, 110px);
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .welcome-greeting-pos-0 {
-    font-size: 3rem;
+@keyframes shimmer {
+  from {
+    background-position: 0% center;
   }
-  .welcome-greeting-pos-1 {
-    font-size: 2rem;
-  }
-  .welcome-greeting-pos-2 {
-    font-size: 1.5rem;
-  }
-  .welcome-greeting-pos-3 {
-    font-size: 1.1rem;
-  }
-  .welcome-greeting-pos-4 {
-    font-size: 0.9rem;
-  }
-  .welcome-brand-text {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .welcome-greeting-pos-0 {
-    font-size: 2.2rem;
-  }
-  .welcome-greeting-pos-1 {
-    font-size: 1.5rem;
-  }
-  .welcome-greeting-pos-2 {
-    font-size: 1.1rem;
-  }
-  .welcome-brand-text {
-    font-size: 1.4rem;
-    letter-spacing: 2px;
+  to {
+    background-position: -220% center;
   }
 }
