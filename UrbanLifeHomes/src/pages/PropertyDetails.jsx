@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useProperty } from "../lib/useData";
 import { useBooking } from "../lib/booking";
 import { FALLBACK_PROPERTIES } from "../lib/fallbackData";
+import PropertyFeatures from "../components/PropertyFeatures";
 
 function PropertyNotFound() {
   return (
@@ -147,6 +148,8 @@ export default function PropertyDetails() {
             </div>
           </div>
         </div>
+
+        <PropertyFeatures title={`Why ${property.title}`} />
 
         <div className="details-body">
           <div className="details-main">

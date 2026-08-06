@@ -1,0 +1,77 @@
+.property-features { margin-bottom: 50px; }
+
+.property-features h3 {
+  font-family: 'Klavika', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f0f0f0;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0c870;
+}
+
+.property-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin: 30px 0 20px;
+}
+
+.property-feature-card {
+  background: #14110d;
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(240, 235, 227, 0.08);
+  transition: all 0.3s;
+  cursor: default;
+}
+
+.property-feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 30px rgba(224, 200, 112, 0.12);
+  border-color: #b8863a;
+}
+
+.property-feature-card .property-feature-icon {
+  width: 68px;
+  height: 68px;
+  background: linear-gradient(145deg, #2a251c, #1c1811);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  transition: 0.3s;
+}
+
+.property-feature-card:hover .property-feature-icon {
+  background: linear-gradient(145deg, #b8863a, #d4a35a);
+}
+
+.property-feature-card .property-feature-icon svg {
+  color: #b8863a;
+  transition: 0.3s;
+}
+
+.property-feature-card:hover .property-feature-icon svg {
+  color: #fff;
+}
+
+.property-feature-card h4 {
+  font-family: 'Klavika', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #f4f0e8;
+}
+
+.property-feature-card p {
+  font-family: 'Inter', sans-serif;
+  color: #bdb5a8;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0;
+}
