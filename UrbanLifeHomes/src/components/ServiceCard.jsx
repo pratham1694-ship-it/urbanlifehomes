@@ -1,19 +1,6 @@
-import { Link } from "react-router-dom";
 import "./ServiceCard.css";
 
-export default function ServiceCard({ image, title, index, to }) {
-  if (to) {
-    return (
-      <Link to={to} className="svc-card-link">
-        <CardBody image={image} title={title} index={index} />
-      </Link>
-    );
-  }
-
-  return <CardBody image={image} title={title} index={index} />;
-}
-
-function CardBody({ image, title, index }) {
+export default function ServiceCard({ image, title, index }) {
   return (
     <div className="svc-card">
       <div className="svc-card__img">
