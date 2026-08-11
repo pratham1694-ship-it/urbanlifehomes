@@ -325,27 +325,6 @@ function HomePage() {
     { title: "Residential Projects", image: "/images/residential1.jpg" },
   ];
 
-  useEffect(() => {
-    const cards = Array.from(document.querySelectorAll("#services .svc-card"));
-    console.log(`[HomePage] Found ${cards.length} service card(s) in DOM.`);
-
-    cards.forEach((card, i) => {
-      const wrapper = card.closest(".scroll-reveal");
-      const title = card.querySelector(".svc-card__title")?.textContent;
-      const style = wrapper ? getComputedStyle(wrapper) : null;
-      console.log(
-        `[HomePage] Card ${i} "${title}" -> wrapper class: ${wrapper?.className || "NONE"}, ` +
-        `opacity: ${style?.opacity ?? "n/a"}, transform: ${style?.transform ?? "n/a"}`
-      );
-
-      const img = card.querySelector("img");
-      if (img) {
-        img.addEventListener("error", () => console.error(`[HomePage] Image FAILED to load: ${img.src}`));
-        img.addEventListener("load", () => console.log(`[HomePage] Image loaded: ${img.src}`));
-      }
-    });
-  }, []);
-
   return (
     <>
       <HeroBanner />
