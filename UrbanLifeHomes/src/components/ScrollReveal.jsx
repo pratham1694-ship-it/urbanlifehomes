@@ -20,8 +20,14 @@ export default function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
+    if (!("IntersectionObserver" in window)) {
+      console.error("[ScrollReveal] IntersectionObserver NOT supported — element stays hidden (opacity: 0).");
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
+        console.log(`[ScrollReveal] entry "${el.className}" -> isIntersecting: ${entry.isIntersecting}, ratio: ${entry.intersectionRatio.toFixed(3)}`);
         if (entry.isIntersecting) {
           setVisible(true);
           if (once) observer.unobserve(el);
@@ -33,6 +39,7 @@ export default function ScrollReveal({
     );
 
     observer.observe(el);
+    console.log(`[ScrollReveal] observing element:`, el.className);
     return () => observer.disconnect();
   }, [threshold, once]);
 
