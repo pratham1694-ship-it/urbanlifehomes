@@ -8,7 +8,7 @@ export default function ScrollReveal({
   duration = 1000,
   outDelay = 0,
   outDuration = 600,
-  threshold = 0,
+  threshold = 0.15,
   once = false,
 }) {
   const ref = useRef(null);
@@ -20,17 +20,10 @@ export default function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
-    const show = () => setVisible(true);
-
-    if (!("IntersectionObserver" in window)) {
-      show();
-      return;
-    }
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          show();
+          setVisible(true);
           if (once) observer.unobserve(el);
         } else if (!once) {
           setVisible(false);
@@ -40,22 +33,7 @@ export default function ScrollReveal({
     );
 
     observer.observe(el);
-
-    // Fail-safe: reveal as soon as any part of the element enters the
-    // viewport, even if the observer misses its callback.
-    const failSafe = () => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) show();
-    };
-    window.addEventListener("scroll", failSafe, { passive: true });
-    window.addEventListener("resize", failSafe, { passive: true });
-    failSafe();
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", failSafe);
-      window.removeEventListener("resize", failSafe);
-    };
+    return () => observer.disconnect();
   }, [threshold, once]);
 
   if (prevVisible.current !== visible) {

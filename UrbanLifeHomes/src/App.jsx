@@ -14,15 +14,11 @@ import Contact from "./pages/Contact";
 import PropertyDetails from "./pages/PropertyDetails";
 import Upcoming from "./pages/Upcoming";
 import Projects from "./pages/Projects";
-import Construction from "./pages/Construction";
-import InteriorDesign from "./pages/InteriorDesign";
-import Plotting from "./pages/Plotting";
-import ResidentialProjects from "./pages/ResidentialProjects";
 import SearchOverlay from "./components/SearchOverlay";
 import BookingModal from "./components/BookingModal";
 import { BookingContext } from "./lib/booking";
-import { useDoc } from "./lib/useData";
-import { FALLBACK_SITE_SETTINGS } from "./lib/fallbackData";
+import { useCollection, useDoc } from "./lib/useData";
+import { FALLBACK_SERVICES, FALLBACK_SITE_SETTINGS } from "./lib/fallbackData";
 import "./components/ScrollReveal.css";
 import "./App.css";
 
@@ -310,20 +306,9 @@ function Footer() {
   );
 }
 
-const SERVICE_ROUTES = {
-  Construction: "/services/construction",
-  "Interior Designs": "/services/interior-design",
-  Plotting: "/services/plotting",
-  "Residential Projects": "/services/residential-projects",
-};
-
 function HomePage() {
-  const services = [
-    { title: "Construction", image: "/images/Residential-3.jpg" },
-    { title: "Interior Designs", image: "/images/interior.jpg" },
-    { title: "Plotting", image: "/images/plotting.jpg" },
-    { title: "Residential Projects", image: "/images/residential1.jpg" },
-  ];
+  const { data: mongoServices } = useCollection("services");
+  const services = mongoServices || FALLBACK_SERVICES;
 
   return (
     <>
@@ -361,7 +346,7 @@ function HomePage() {
           <div className="services-grid">
             {services.map((svc, i) => (
               <ScrollReveal key={i} animation="fade-up" delay={i * 120}>
-                <ServiceCard image={svc.image} title={svc.title} index={i} to={SERVICE_ROUTES[svc.title]} />
+                <ServiceCard image={svc.image} title={svc.title} index={i} />
               </ScrollReveal>
             ))}
           </div>
@@ -422,10 +407,6 @@ function App() {
               <Route path="/property/:slug" element={<PropertyDetails />} />
               <Route path="/upcoming" element={<Upcoming />} />
               <Route path="/projects" element={<Projects />} />
-              <Route path="/services/construction" element={<Construction />} />
-              <Route path="/services/interior-design" element={<InteriorDesign />} />
-              <Route path="/services/plotting" element={<Plotting />} />
-              <Route path="/services/residential-projects" element={<ResidentialProjects />} />
             </Routes>
           </Layout>
         </BrowserRouter>
