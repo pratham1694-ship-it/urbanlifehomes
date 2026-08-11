@@ -37,7 +37,7 @@ const SITE_SETTINGS = {
   phone: ["+91 - 9288-52-9288", "+91 - 9873-73-0101"],
   email: "info@urbanlifehomes.com",
   hours: "Mon - Sat, 10:00 AM - 7:00 PM",
-  social: { facebook: "#", instagram: "#", linkedin: "#" },
+  social: { facebook: "#", instagram: "https://www.instagram.com/urbanlifehomes/", linkedin: "#" },
 };
 
 const SERVICES = [
