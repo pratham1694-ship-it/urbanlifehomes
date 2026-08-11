@@ -237,7 +237,7 @@ export default function SearchOverlay({ open, onClose }) {
               <p className="search-empty__title">No results for “{query.trim()}”</p>
               <p className="search-empty__sub">Try a project name, location, service or page.</p>
               <div className="search-chips">
-                {["Sapphire Enclave", "Plot 5A", "Construction", "Vision"].map((s) => (
+                {["Sapphire Enclave", "Plot 5", "Construction", "Vision"].map((s) => (
                   <button key={s} className="search-chip" onClick={() => setQuery(s)}>{s}</button>
                 ))}
               </div>

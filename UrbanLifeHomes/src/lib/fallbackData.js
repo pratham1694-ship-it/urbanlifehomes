@@ -68,15 +68,15 @@ export const FALLBACK_PROPERTIES = [
     slug: "plot-5a",
     image: "/images/5a.png",
     images: ["/images/5a.png", "/images/5a-2.png"],
-    title: "Plot 5A",
+    title: "Plot 5",
     tagline: "Premium 2 & 3 BHK Residences",
-    location: "Plot 5A, Sector 107, Noida",
+    location: "Plot 5, Sector 107, Noida",
     price: "Call for Price",
     status: "Under Construction",
     category: "current",
     possession: "Call for Possession",
     rera: "",
-    description: "Welcome to Plot 5A, a thoughtfully designed residential development offering premium 2 and 3 BHK apartments in the heart of Sector 107, Noida. Combining modern architecture, spacious layouts, premium specifications, and excellent connectivity, Plot 5A offers everything today's families need for a comfortable and sophisticated lifestyle. Every apartment maximizes usable living space while ensuring abundant daylight, cross ventilation, and practical room layouts.",
+    description: "Welcome to Plot 5, a thoughtfully designed residential development offering premium 2 and 3 BHK apartments in the heart of Sector 107, Noida. Combining modern architecture, spacious layouts, premium specifications, and excellent connectivity, Plot 5 offers everything today's families need for a comfortable and sophisticated lifestyle. Every apartment maximizes usable living space while ensuring abundant daylight, cross ventilation, and practical room layouts.",
     highlights: [
       "Smart Space Planning",
       "Large Plate Glass Windows",
@@ -199,7 +199,7 @@ export const FALLBACK_LEGACY = {
 export const FALLBACK_BANNERS = [
   { title: "Plot 15", subtitle: "Premium 2 & 3 BHK Apartments — Plot 15, Sector 107, Noida", image: "/images/15.png" },
   { title: "Sapphire Enclave", subtitle: "Premium 2 & 3 BHK Apartments — Plot 12, Sector 107, Noida", image: "/images/12a.png" },
-  { title: "Plot 5A", subtitle: "Premium 2 & 3 BHK Residences — Plot 5A, Sector 107, Noida", image: "/images/5a.png" },
+  { title: "Plot 5", subtitle: "Premium 2 & 3 BHK Residences — Plot 5, Sector 107, Noida", image: "/images/5a.png" },
 ];
 
 export const FALLBACK_PRICING = [

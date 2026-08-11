@@ -21,8 +21,8 @@ import ResidentialProjects from "./pages/ResidentialProjects";
 import SearchOverlay from "./components/SearchOverlay";
 import BookingModal from "./components/BookingModal";
 import { BookingContext } from "./lib/booking";
-import { useCollection, useDoc } from "./lib/useData";
-import { FALLBACK_SERVICES, FALLBACK_SITE_SETTINGS } from "./lib/fallbackData";
+import { useDoc } from "./lib/useData";
+import { FALLBACK_SITE_SETTINGS } from "./lib/fallbackData";
 import "./components/ScrollReveal.css";
 import "./App.css";
 
@@ -318,8 +318,12 @@ const SERVICE_ROUTES = {
 };
 
 function HomePage() {
-  const { data: mongoServices } = useCollection("services");
-  const services = mongoServices?.length ? mongoServices : FALLBACK_SERVICES;
+  const services = [
+    { title: "Construction", image: "/images/Residential-3.jpg" },
+    { title: "Interior Designs", image: "/images/interior.jpg" },
+    { title: "Plotting", image: "/images/plotting.jpg" },
+    { title: "Residential Projects", image: "/images/residential1.jpg" },
+  ];
 
   return (
     <>
