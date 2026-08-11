@@ -198,13 +198,6 @@ function Sidebar() {
           <li><Link to="/upcoming" onClick={dismissOffcanvas}>Upcoming Projects</Link></li>
           <li><Link to="/contact" onClick={dismissOffcanvas}>Contact</Link></li>
         </ul>
-        <p className="sidebar-group-label">Services</p>
-        <ul className="sidebar-links">
-          <li><Link to="/services/construction" onClick={dismissOffcanvas}>Construction</Link></li>
-          <li><Link to="/services/interior-design" onClick={dismissOffcanvas}>Interior Designs</Link></li>
-          <li><Link to="/services/plotting" onClick={dismissOffcanvas}>Plotting</Link></li>
-          <li><Link to="/services/residential-projects" onClick={dismissOffcanvas}>Residential Projects</Link></li>
-        </ul>
       </div>
     </div>
   );
@@ -326,7 +319,7 @@ const SERVICE_ROUTES = {
 
 function HomePage() {
   const { data: mongoServices } = useCollection("services");
-  const services = mongoServices || FALLBACK_SERVICES;
+  const services = mongoServices?.length ? mongoServices : FALLBACK_SERVICES;
 
   return (
     <>
@@ -425,6 +418,10 @@ function App() {
               <Route path="/property/:slug" element={<PropertyDetails />} />
               <Route path="/upcoming" element={<Upcoming />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/services/construction" element={<Construction />} />
+              <Route path="/services/interior-design" element={<InteriorDesign />} />
+              <Route path="/services/plotting" element={<Plotting />} />
+              <Route path="/services/residential-projects" element={<ResidentialProjects />} />
             </Routes>
           </Layout>
         </BrowserRouter>
