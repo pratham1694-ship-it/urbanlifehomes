@@ -1,5 +1,16 @@
 /* ================= SERVICE CARD — MODERN ================= */
 
+.svc-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 20px;
+}
+
+.svc-card-link:hover {
+  text-decoration: none;
+}
+
 .svc-card {
   position: relative;
   border-radius: 20px;
