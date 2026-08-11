@@ -14,6 +14,10 @@ import Contact from "./pages/Contact";
 import PropertyDetails from "./pages/PropertyDetails";
 import Upcoming from "./pages/Upcoming";
 import Projects from "./pages/Projects";
+import Construction from "./pages/Construction";
+import InteriorDesign from "./pages/InteriorDesign";
+import Plotting from "./pages/Plotting";
+import ResidentialProjects from "./pages/ResidentialProjects";
 import SearchOverlay from "./components/SearchOverlay";
 import BookingModal from "./components/BookingModal";
 import { BookingContext } from "./lib/booking";
@@ -194,6 +198,13 @@ function Sidebar() {
           <li><Link to="/upcoming" onClick={dismissOffcanvas}>Upcoming Projects</Link></li>
           <li><Link to="/contact" onClick={dismissOffcanvas}>Contact</Link></li>
         </ul>
+        <p className="sidebar-group-label">Services</p>
+        <ul className="sidebar-links">
+          <li><Link to="/services/construction" onClick={dismissOffcanvas}>Construction</Link></li>
+          <li><Link to="/services/interior-design" onClick={dismissOffcanvas}>Interior Designs</Link></li>
+          <li><Link to="/services/plotting" onClick={dismissOffcanvas}>Plotting</Link></li>
+          <li><Link to="/services/residential-projects" onClick={dismissOffcanvas}>Residential Projects</Link></li>
+        </ul>
       </div>
     </div>
   );
@@ -306,6 +317,13 @@ function Footer() {
   );
 }
 
+const SERVICE_ROUTES = {
+  Construction: "/services/construction",
+  "Interior Designs": "/services/interior-design",
+  Plotting: "/services/plotting",
+  "Residential Projects": "/services/residential-projects",
+};
+
 function HomePage() {
   const { data: mongoServices } = useCollection("services");
   const services = mongoServices || FALLBACK_SERVICES;
@@ -346,7 +364,7 @@ function HomePage() {
           <div className="services-grid">
             {services.map((svc, i) => (
               <ScrollReveal key={i} animation="fade-up" delay={i * 120}>
-                <ServiceCard image={svc.image} title={svc.title} index={i} />
+                <ServiceCard image={svc.image} title={svc.title} index={i} to={SERVICE_ROUTES[svc.title]} />
               </ScrollReveal>
             ))}
           </div>

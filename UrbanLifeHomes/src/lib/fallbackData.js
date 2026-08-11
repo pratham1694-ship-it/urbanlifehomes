@@ -156,7 +156,7 @@ export const FALLBACK_SITE_SETTINGS = {
   hours: "Mon - Sat, 10:00 AM - 7:00 PM",
   social: {
     facebook: "#",
-    instagram: "#",
+    instagram: "https://www.instagram.com/urbanlifehomes/",
     linkedin: "#",
   },
 };
