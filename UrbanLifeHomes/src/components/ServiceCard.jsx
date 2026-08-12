@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import "./ServiceCard.css";
 
-export default function ServiceCard({ image, title, index }) {
-  return (
-    <div className="svc-card">
+export default function ServiceCard({ image, title, index, to }) {
+  const card = (
+    <>
       <div className="svc-card__img">
         <img src={image} alt={title} />
       </div>
@@ -18,6 +19,16 @@ export default function ServiceCard({ image, title, index }) {
           </svg>
         </p>
       </div>
-    </div>
+    </>
   );
+
+  if (to) {
+    return (
+      <Link to={to} className="svc-card">
+        {card}
+      </Link>
+    );
+  }
+
+  return <div className="svc-card">{card}</div>;
 }

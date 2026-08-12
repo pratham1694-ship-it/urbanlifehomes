@@ -1,6 +1,7 @@
 /* ================= SERVICE CARD — MODERN ================= */
 
 .svc-card {
+  display: block;
   position: relative;
   border-radius: 20px;
   overflow: hidden;

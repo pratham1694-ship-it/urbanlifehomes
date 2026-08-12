@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import PropertyDetails from "./pages/PropertyDetails";
 import Upcoming from "./pages/Upcoming";
 import Projects from "./pages/Projects";
+import Plotting from "./pages/Plotting";
 import SearchOverlay from "./components/SearchOverlay";
 import BookingModal from "./components/BookingModal";
 import { BookingContext } from "./lib/booking";
@@ -346,7 +347,12 @@ function HomePage() {
           <div className="services-grid">
             {services.map((svc, i) => (
               <ScrollReveal key={i} animation="fade-up" delay={i * 120}>
-                <ServiceCard image={svc.image} title={svc.title} index={i} />
+                <ServiceCard
+                  image={svc.image}
+                  title={svc.title}
+                  index={i}
+                  to={svc.title === "Plotting" ? "/plotting" : undefined}
+                />
               </ScrollReveal>
             ))}
           </div>
@@ -407,6 +413,7 @@ function App() {
               <Route path="/property/:slug" element={<PropertyDetails />} />
               <Route path="/upcoming" element={<Upcoming />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/plotting" element={<Plotting />} />
             </Routes>
           </Layout>
         </BrowserRouter>
