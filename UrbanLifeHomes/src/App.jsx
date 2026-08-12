@@ -15,6 +15,9 @@ import PropertyDetails from "./pages/PropertyDetails";
 import Upcoming from "./pages/Upcoming";
 import Projects from "./pages/Projects";
 import Plotting from "./pages/Plotting";
+import Construction from "./pages/Construction";
+import InteriorDesigns from "./pages/InteriorDesigns";
+import ResidentialProjects from "./pages/ResidentialProjects";
 import SearchOverlay from "./components/SearchOverlay";
 import BookingModal from "./components/BookingModal";
 import { BookingContext } from "./lib/booking";
@@ -22,6 +25,13 @@ import { useCollection, useDoc } from "./lib/useData";
 import { FALLBACK_SERVICES, FALLBACK_SITE_SETTINGS } from "./lib/fallbackData";
 import "./components/ScrollReveal.css";
 import "./App.css";
+
+const SERVICE_ROUTES = {
+  Construction: "/construction",
+  "Interior Designs": "/interior-designs",
+  Plotting: "/plotting",
+  "Residential Projects": "/residential-projects",
+};
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -351,7 +361,7 @@ function HomePage() {
                   image={svc.image}
                   title={svc.title}
                   index={i}
-                  to={svc.title === "Plotting" ? "/plotting" : undefined}
+                  to={SERVICE_ROUTES[svc.title]}
                 />
               </ScrollReveal>
             ))}
@@ -414,6 +424,9 @@ function App() {
               <Route path="/upcoming" element={<Upcoming />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/plotting" element={<Plotting />} />
+              <Route path="/construction" element={<Construction />} />
+              <Route path="/interior-designs" element={<InteriorDesigns />} />
+              <Route path="/residential-projects" element={<ResidentialProjects />} />
             </Routes>
           </Layout>
         </BrowserRouter>
