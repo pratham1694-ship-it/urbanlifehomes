@@ -14,6 +14,8 @@ app.use(
       "http://localhost:5173",
       "http://localhost:5137",
       "https://urbanlifehomes.vercel.app",
+      "https://urbanlifehomes.com",
+      "https://www.urbanlifehomes.com",
     ],
     credentials: true,
   })
