@@ -7,8 +7,8 @@
 .journey-progress { position: absolute; right: max(3vw, 1.4rem); top: 37rem; writing-mode: vertical-rl; display: flex; align-items: center; gap: 1.2rem; z-index: 3; color: #aaa296; font-size: .64rem; letter-spacing: .15em; }
 .journey-progress span { height: 64px; width: 1px; background: #cdb26b; }
 .journey-scene { min-height: 100vh; position: relative; display: flex; align-items: flex-end; padding: clamp(3rem, 9vw, 9rem); overflow: hidden; }
-.journey-image { position: absolute; inset: 0; background-position: center; background-size: cover; transform: scale(1.04); transition: transform 1.2s ease; }
-.journey-scene:hover .journey-image { transform: scale(1.09); }
+.journey-image { position: absolute; inset: 0; background-position: center; background-size: cover; transition: transform 1.2s ease; }
+.journey-scene:hover .journey-image { transform: scale(1.04); }
 .journey-veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,4,3,.78), rgba(5,4,3,.13) 72%), linear-gradient(0deg, rgba(5,4,3,.6), transparent 60%); }
 .journey-copy { position: relative; max-width: 520px; z-index: 1; }
 .journey-copy h3, .journey-final h3 { font: 400 clamp(3rem, 6vw, 6.5rem)/.94 Georgia, serif; letter-spacing: -.06em; margin: 0 0 1.4rem; }
